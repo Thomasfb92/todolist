@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do list</title>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script>
+        //model
+        let html = '';
+        let todolist = '';
+        let text = '';
+
+        let jajaTest = '';
+        //view
+
+        view();
+
+        function view() {
+            html = /*html*/ `
+            <h2>To Do LIST:</h2>
+            <input 
+                type="text"
+                oninput="jajaTest = this.value"
+                value="${text}"
+            /> 
+            <button onclick="registrer()">Registrer</button>
+            <button onclick="blankAll()">Blank All</button>
+            
+            <div>${todolist}</div>
+            
+
+            `;
+
+            console.log(jajaTest);
+            document.getElementById('app').innerHTML = html;
+        }
+        //controller her skriver vi det som skal kontrolere 
+        function registrer() {
+            const id = Math.floor(Math.random() * 1000000);
+            text = jajaTest; // trenger vi .value på jajaTest? Nei, tror ikke det ;)
+            todolist += '<li id="${id}">' + jajaTest + ' <button oninput="fjernListe(${id})">X</button></li>';
+            console.log(id);
+            //skriv koden over her
+            view();
+        }
+
+        function fjernListe(idToClose) {
+            div.remove();
+
+            //koden for å fjerne hver enkelt punkt
+            view();
+        }
+
+
+        function blankAll() {
+            window.location.reload();
+        }
+    </script>
+</body>
+
+</html>
